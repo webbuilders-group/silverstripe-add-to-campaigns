@@ -6,6 +6,7 @@ use SilverStripe\CampaignAdmin\AddToCampaignHandler;
 use SilverStripe\Control\Controller;
 use SilverStripe\ORM\ValidationResult;
 use SilverStripe\Versioned\Versioned;
+use SilverStripe\ORM\DataObjectSchema;
 
 
 class AddToCampaignController extends LeftAndMain
@@ -64,6 +65,12 @@ class AddToCampaignController extends LeftAndMain
         $id = $data['ID'];
         $modelClass = $this->unsanitiseClassName(($this->request->param('ModelClass') ?: $this->request->postVar('ClassName')));
         
+        // Ensure we have the base data class
+        if(!empty($modelClass) && !class_exists($modelClass))
+        {
+            $modelClass = DataObjectSchema::singleton()->baseDataClass($modelClass);
+        }
+        
         // Make sure the class exists and is allowed
         if(empty($modelClass) || !class_exists($modelClass) || !in_array($modelClass, $this->config()->campaignable_classes) || !$modelClass::has_extension(Versioned::class))
         {
@@ -107,6 +114,12 @@ class AddToCampaignController extends LeftAndMain
         $id = ($request->param('OtherID') ?: $request->postVar('ID'));
         $class = $this->unsanitiseClassName(($request->param('ModelClass') ?: $request->postVar('ClassName')));
         
+        // Ensure we have the base data class
+        if(!empty($class) && !class_exists($class))
+        {
+            $class = DataObjectSchema::singleton()->baseDataClass($class);
+        }
+        
         return $this->getAddToCampaignForm($id, $class);
     }
     
@@ -121,6 +134,12 @@ class AddToCampaignController extends LeftAndMain
         if(empty($modelClass))
         {
             $modelClass = $this->unsanitiseClassName(($this->request->param('ModelClass') ?: $this->request->postVar('ClassName')));
+            
+            // Ensure we have the base data class
+            if(!empty($modelClass) && !class_exists($modelClass))
+            {
+                $modelClass = DataObjectSchema::singleton()->baseDataClass($modelClass);
+            }
         }
         
         // Make sure the class exists and is allowed
