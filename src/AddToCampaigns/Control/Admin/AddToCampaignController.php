@@ -4,9 +4,9 @@ namespace WebbuildersGroup\AddToCampaigns\Control\Admin;
 use SilverStripe\Admin\LeftAndMain;
 use SilverStripe\CampaignAdmin\AddToCampaignHandler;
 use SilverStripe\Control\Controller;
+use SilverStripe\ORM\DataObjectSchema;
 use SilverStripe\ORM\ValidationResult;
 use SilverStripe\Versioned\Versioned;
-use SilverStripe\ORM\DataObjectSchema;
 
 
 class AddToCampaignController extends LeftAndMain
