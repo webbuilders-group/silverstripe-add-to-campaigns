@@ -1,0 +1,8 @@
+---
+Name: add_to_campaigns
+After:
+    - "framework/*"
+---
+SilverStripe\Forms\GridField\GridFieldDetailForm_ItemRequest:
+    extensions:
+        - 'WebbuildersGroup\AddToCampaigns\Extensions\CampaignableGridField'

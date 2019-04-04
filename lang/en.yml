@@ -1,0 +1,4 @@
+en:
+    WebbuildersGroup\AddToCampaigns\Control\Admin\AddToCampaignController:
+        ErrorNotFound: "That {Type} couldn't be found"
+        ErrorItemPermissionDenied: "It seems you don't have the necessary permissions to add {ObjectTitle} to a campaign"
