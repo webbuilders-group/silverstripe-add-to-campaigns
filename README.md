@@ -26,7 +26,7 @@ WebbuildersGroup\AddToCampaigns\Control\Admin\AddToCampaignController:
 ```
 
 
-If you have not modified your `GridFieldDetailForm_ItemRequest` actions from the default `GridFieldDetailForm_ItemRequest::getFormActions()` the "Add to Campaign" button should be automatically be added to all allowed classes. If not you can add the following to were ever you are setting up your form actions for your `DataObject`.
+If you have not modified your `GridFieldDetailForm_ItemRequest` actions from the default `GridFieldDetailForm_ItemRequest::getFormActions()` the "Add to Campaign" button should be automatically be added to all allowed classes. If you have you can add the following to where ever you are setting up your form actions for your `DataObject` in your `GridFieldDetailForm_ItemRequest` extension.
 
 ```php
 use SilverStripe\CampaignAdmin\AddToCampaignHandler_FormAction;
