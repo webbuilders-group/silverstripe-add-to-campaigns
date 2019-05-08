@@ -7,7 +7,7 @@ const FormBuilderModal = loadComponent('FormBuilderModal');
 jQuery.entwine('ss', ($) => {
     $('.add-to-campaign-supported .cms-content-actions #Form_ItemEditForm_action_addtocampaign').entwine({
         onclick() {
-            let dialog = $('#add-to-campaign__dialog-wrapper.modeladmin-campaigns-manager');
+            let dialog = $('#add-to-campaign__dialog-wrapper.addtocampaigns-controlled');
             
             if (!dialog.length) {
                 dialog = $('<div id="add-to-campaign__dialog-wrapper" class="addtocampaigns-controlled" />');
