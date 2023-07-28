@@ -1,8 +1,7 @@
 ---
 Name: add_to_campaigns
-After:
-    - "framework/*"
+After: "silverstripe/framework/#*"
 ---
 SilverStripe\Forms\GridField\GridFieldDetailForm_ItemRequest:
-    extensions:
-        - 'WebbuildersGroup\AddToCampaigns\Extensions\CampaignableGridField'
+  extensions:
+    - 'WebbuildersGroup\AddToCampaigns\Extensions\CampaignableGridField'

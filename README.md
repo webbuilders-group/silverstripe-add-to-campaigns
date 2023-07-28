@@ -6,7 +6,7 @@ Capability to add any Versioned object to a campaign easily for CMS Admins via a
 * Ed Chipman ([UndefinedOffset](https://github.com/UndefinedOffset))
 
 ## Requirements
-* SilverStripe Campaign Admin 1.2+
+* SilverStripe Campaign Admin 1.2+ | 2.0+
 
 
 ## Installation
@@ -21,8 +21,8 @@ By default all `SilverStripe\Forms\GridField\GridFieldDetailForm_ItemRequest` in
 
 ```yml
 WebbuildersGroup\AddToCampaigns\Control\Admin\AddToCampaignController:
-    campaignable_classes:
-        - 'Full\DataObject\ClassName\Including\Namespace'
+  campaignable_classes:
+    - 'Full\DataObject\ClassName\Including\Namespace'
 ```
 
 
@@ -34,8 +34,10 @@ use SilverStripe\CampaignAdmin\AddToCampaignHandler_FormAction;
 /** ... **/
 
 if (($myDataObject->isPublished() || $myDataObject->isOnDraft()) && $myDataObject->canPublish()) {
-    $moreOptions->push(AddToCampaignHandler_FormAction::create()
-        ->removeExtraClass('btn-primary')
-        ->addExtraClass('btn-secondary'));
+    $moreOptions->push(
+        AddToCampaignHandler_FormAction::create()
+            ->removeExtraClass('btn-primary')
+            ->addExtraClass('btn-secondary')
+    );
 }
 ```
