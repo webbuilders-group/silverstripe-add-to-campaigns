@@ -3,49 +3,54 @@ const webpack = require('webpack');
 const rootDir = Path.resolve();
 
 const config = [
-  {
-    name: 'js',
-    entry: {
-        'AddToCampaigns': rootDir + '/js-src/AddToCampaigns.js'
-    },
-    output: {
-        path: rootDir,
-        filename: 'javascript/[name].js',
-        devtoolModuleFilenameTemplate: function(opts) {
-            if(opts.resource.search('./js-src/')>=0 || opts.resource.search('./javascript/')>=0 || opts.resource.search('javascript/')==0) {
-                return '../../'+(opts.resourcePath)+'?'+(opts.hash);
-            }
-            
-            return 'webpack:///'+(opts.resourcePath);
+    {
+        name: 'js',
+        entry: {
+            'AddToCampaigns': rootDir + '/js-src/AddToCampaigns.js'
         },
-        devtoolFallbackModuleFilenameTemplate: function(opts) {
-            if(opts.resource.search('./js-src/')>=0 || opts.resource.search('./javascript/')>=0 || opts.resource.search('javascript/')==0) {
-                return '../../'+(opts.resourcePath)+'?'+(opts.hash);
+        output: {
+            path: rootDir,
+            filename: 'javascript/[name].js',
+            devtoolModuleFilenameTemplate: function(opts) {
+                if(opts.resource.search('./js-src/')>=0 || opts.resource.search('./javascript/')>=0 || opts.resource.search('javascript/')==0) {
+                    return '../../'+(opts.resourcePath)+'?'+(opts.hash);
+                }
+                
+                return 'webpack:///'+(opts.resourcePath);
+            },
+            devtoolFallbackModuleFilenameTemplate: function(opts) {
+                if(opts.resource.search('./js-src/')>=0 || opts.resource.search('./javascript/')>=0 || opts.resource.search('javascript/')==0) {
+                    return '../../'+(opts.resourcePath)+'?'+(opts.hash);
+                }
+                
+                return 'webpack:///'+(opts.resourcePath);
             }
-            
-            return 'webpack:///'+(opts.resourcePath);
-        }
-    },
-    devtool: 'nosources-source-map',
-    module: {
-        rules: [
-            {
-                test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: [
-                                    ['env', { modules: false }],
-                                    'react',
+        },
+        devtool: 'nosources-source-map',
+        module: {
+            rules: [
+                {
+                    test: /\.(js|jsx)$/,
+                    exclude: /node_modules/,
+                    use: {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: [
+                                [
+                                    "@babel/env",
+                                    {
+                                        modules: false,
+                                    }
                                 ],
-                        comments: false
+                                "@babel/react",
+                            ],
+                            comments: false,
+                        },
                     }
                 }
-            }
-        ]
-    },
-    externals: {
+            ]
+        },
+        externals: {
             'apollo-client': 'ApolloClient',
             'bootstrap-collapse': 'BootstrapCollapse',
             classnames: 'classnames',
