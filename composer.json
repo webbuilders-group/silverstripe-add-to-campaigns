@@ -14,7 +14,7 @@
 		}
 	],
 	"require": {
-		"silverstripe/campaign-admin": "~1.2|~2.0"
+		"silverstripe/campaign-admin": "~3.0"
 	},
 	"support": {
 		"issues": "https://github.com/webbuilders-group/silverstripe-add-to-campaigns/issues"

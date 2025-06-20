@@ -5,8 +5,8 @@ use SilverStripe\Admin\LeftAndMain;
 use SilverStripe\CampaignAdmin\AddToCampaignHandler;
 use SilverStripe\Control\Controller;
 use SilverStripe\Control\HTTPResponse;
+use SilverStripe\Core\Validation\ValidationResult;
 use SilverStripe\ORM\DataObjectSchema;
-use SilverStripe\ORM\ValidationResult;
 use SilverStripe\Versioned\Versioned;
 
 class AddToCampaignController extends LeftAndMain
@@ -42,7 +42,7 @@ class AddToCampaignController extends LeftAndMain
      *
      * @return array
      */
-    public function getClientConfig()
+    public function getClientConfig(): array
     {
         $config = parent::getClientConfig();
 

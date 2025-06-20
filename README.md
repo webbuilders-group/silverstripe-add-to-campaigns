@@ -6,7 +6,7 @@ Capability to add any Versioned object to a campaign easily for CMS Admins via a
 * Ed Chipman ([UndefinedOffset](https://github.com/UndefinedOffset))
 
 ## Requirements
-* SilverStripe Campaign Admin 1.2+ | 2.0+
+* SilverStripe Campaign Admin ~3.0
 
 
 ## Installation
